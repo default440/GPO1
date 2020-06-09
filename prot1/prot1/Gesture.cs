@@ -61,7 +61,7 @@ namespace prot1
             float similarity;
             int i = 0;
 
-            string name_of_gesture = null;
+            string name_of_gesture = "";
 
             Image_Comparison cmp = new Image_Comparison();
 

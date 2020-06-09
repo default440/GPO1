@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace prot1
@@ -26,16 +27,20 @@ namespace prot1
             pictureBox1.Image = (Bitmap)img.Clone();
             try
             {
-                this.label1.BeginInvoke((MethodInvoker)(() => this.label1.Text = searcher.Search((Bitmap)Data.Image_ready.Clone())));
+                string gest = searcher.Search((Bitmap)Data.Image_ready.Clone());
+
+                this.textBox1.BeginInvoke((MethodInvoker)(() => this.textBox1.Text = textBox1.Text + gest));
+                this.label1.BeginInvoke((MethodInvoker)(() => this.label1.Text = gest));
+
+                if (gest != "")
+                {
+                    Thread.Sleep(1000);
+                }
             }
             catch
             {
 
             }
-
-            Bitmap bmp = (Bitmap)Data.Image_ready.Clone();
-
-            pictureBox2.Image = (Bitmap)bmp.Clone();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e) {}
@@ -80,6 +85,11 @@ namespace prot1
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Data.CloseVideoSource();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
