@@ -10,7 +10,7 @@ namespace prot1
 {
     class Data
     {
-        private static string path = "S:/ГПО/prot1/image";
+        private static string path = "P:/ГПО/prot1/image";
         private static float red = 0f, green = 0.2f, blue = 0.56f;
         private static float similarity_limit = 0.75f;
 
@@ -103,7 +103,7 @@ namespace prot1
 
         public static void Default()
         {
-            Path = "S:/ГПО/prot1/image";
+            Path = "P:/ГПО/prot1/image";
 
             Red = 0f;
             Green = 0.2f;
